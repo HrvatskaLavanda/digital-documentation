@@ -22,10 +22,21 @@ public class Employer {
         return false;
     }
 
-//   metoda pobiera dane z komputera o pracodawcy
-//    public void addDataEmployer() {
-//
-//    }
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return "Employer{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", address=" + address +
+                ", notes=" + notes +
+                '}';
+    }
 }
 
 
