@@ -16,25 +16,45 @@ public class Company {
     public Job acceptJob(Employer employer, Address jobAddress) {
         BigDecimal employerPrice = employer.getPrice();
 
+        Employee foundEmployee = findEmployee(employerPrice);
+        if (foundEmployee != null) {
+            return new Job("", foundEmployee.getPrice(), employer, foundEmployee, jobAddress);
+        }
+        return null;
+    }
+
+    public Employee addEmployee(Job job) {
+        if (job != null) {
+            Employer employer = job.getEmployer();
+            if (employer != null) {
+                BigDecimal employerPrice = employer.getPrice();
+                Employee foundEmployee = findEmployee(employerPrice);
+                if (foundEmployee != null) {
+                    job.getEmployees().add(foundEmployee);
+                    return foundEmployee;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void hire(Employee employee) {
+        this.employees.add(employee);
+    }
+
+    Employee findEmployee(BigDecimal employerPrice) {
         for (Employee employee : employees) {
             BigDecimal employeePrice = employee.getPrice();
 
             if (employerPrice != null && employeePrice != null) {
                 int comparedPrice = employerPrice.compareTo(employeePrice);
                 if (comparedPrice >= 0) {
-                    return new Job("", employeePrice, employer, employee, jobAddress);
+                    return employee;
                 }
             }
         }
 
         return null;
-    }
-
-    public void addEmployee(Job job) {
-    }
-
-    public void hire(Employee employee) {
-        this.employees.add(employee);
     }
 
     public List<Employee> getEmployees() {

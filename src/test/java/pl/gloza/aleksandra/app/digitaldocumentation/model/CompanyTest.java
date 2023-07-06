@@ -69,6 +69,13 @@ class CompanyTest {
         company.addEmployee(job);
 
         //then
-
+// TODO: 06.07.2023 napisz test do metody powyżej, poprawnie 
     }
+
+    @Test
+    void findEmployee() {
+        // TODO: 06.07.2023 napisać test dla metody findEmployee() 
+    }
+    
+    
 }
