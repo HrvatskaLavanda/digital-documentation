@@ -13,13 +13,11 @@ public class Employer {
     private List<Note> notes;
 
     public Job orderJob(Company company, Address jobAddress) {
-        Job acceptedJob = company.acceptJob(this, jobAddress ); //this - ta klasa/dana instancja obiektu
-        return acceptedJob;
+        throw new UnsupportedOperationException("we don't know yet");
     }
 
     public boolean acceptPrice(Job job) {
-        BigDecimal price = job.getPrice();
-        return false;
+        throw new UnsupportedOperationException("we don't know yet");
     }
 
     public BigDecimal getPrice() {
