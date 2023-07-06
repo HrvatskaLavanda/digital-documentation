@@ -26,12 +26,24 @@ public class Employee {
         return false;
     }
 
-//    metoda pobiera dane z komputera o pracowniku
-//    public void addDataEmployee() {}
-//    te dane będą ustawione w konstruktorze, w tej sytuacji nie ma potrzeby tej metody
+    public BigDecimal getPrice() {
+        return price;
+    }
 
-//    metoda pobiera dokument pdf z komputera
-//    public void addCV() {}
-//    tworzenie CV w oddzielnej klasie na podstawie danych pracownika
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthday=" + birthday +
+                ", nationality='" + nationality + '\'' +
+                ", price=" + price +
+                ", address=" + address +
+                ", notes=" + notes +
+                '}';
+    }
 }
