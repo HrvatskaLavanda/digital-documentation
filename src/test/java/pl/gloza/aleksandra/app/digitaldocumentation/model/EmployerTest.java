@@ -5,15 +5,13 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class EmployerTest {
 
     @Test
     void acceptPrice() {
         //given
         Employer employer = new Employer();
-        Job job = new Job("opieka nad dzieckiem", BigDecimal.TEN, null, null);
+        Job job = new Job("opieka nad dzieckiem", BigDecimal.TEN, employer, null, null);
         //when
         boolean isAccepted = employer.acceptPrice(job);
         //then

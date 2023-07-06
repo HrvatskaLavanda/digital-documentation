@@ -2,6 +2,7 @@ package pl.gloza.aleksandra.app.digitaldocumentation.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Job {
@@ -11,30 +12,29 @@ public class Job {
     private LocalDateTime startDate;
 
     private Employer employer;
-//    private Employee employee;
-    private List<Employee> employees;
+    private List<Employee> employees = new ArrayList<>();
     private Address address;
 
     private List<Note> notes;
 
-    public Job(String name, BigDecimal price, Employer employer, Address address) {
+    public Job(String name, BigDecimal price, Employer employer, Employee employee, Address address) {
         this.name = name;
         this.price = price;
         this.startDate = LocalDateTime.now();
         this.employer = employer;
+        this.employees.add(employee);
         this.address = address;
     }
 
     public BigDecimal getPrice() {
         return price;
     }
-//    metoda pobiera dane z komputera o pracy
-//    public void addJob() {
-//
-//    }
-//
-//    metoda szuka pracy w bazie danych prac po wybranych paramentach
-//    public void searchJob() {
-//
-//    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
 }

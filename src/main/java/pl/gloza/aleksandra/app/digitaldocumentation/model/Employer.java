@@ -12,8 +12,8 @@ public class Employer {
     private Address address;
     private List<Note> notes;
 
-    public Job orderJob(Company company) {
-        Job acceptedJob = company.acceptJob(this); //this - ta klasa/dana instancja obiektu
+    public Job orderJob(Company company, Address jobAddress) {
+        Job acceptedJob = company.acceptJob(this, jobAddress ); //this - ta klasa/dana instancja obiektu
         return acceptedJob;
     }
 
@@ -24,6 +24,10 @@ public class Employer {
 
     public BigDecimal getPrice() {
         return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     @Override

@@ -30,6 +30,10 @@ public class Employee {
         return price;
     }
 
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +

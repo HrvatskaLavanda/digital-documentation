@@ -6,15 +6,14 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class EmployeeTest {
 
     @Test
     void acceptJob() {
         //given - tworzymy obiekt klasy testowanej oraz parametry metody testowanej
+        Employer employer = new Employer();
         Employee employee = new Employee("Jan", "Nowak", LocalDate.EPOCH, "polish");
-        Job job = new Job("opieka nad dzieckiem", BigDecimal.TEN, null, null);
+        Job job = new Job("opieka nad dzieckiem", BigDecimal.TEN, employer, null, null);
 
         //when - wywołanie metody testowanej dla klasy testowej
         boolean isAccepted = employee.acceptJob(job);
