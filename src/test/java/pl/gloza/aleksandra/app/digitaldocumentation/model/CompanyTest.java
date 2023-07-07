@@ -61,21 +61,36 @@ class CompanyTest {
 
     }
 
+    @Test
     void addEmployee() {
         //given
-        Job job = new Job("opieka nad dzieckiem", BigDecimal.valueOf(100), null, null, null);
+        Employer employer = new Employer();
+        Job job = new Job("opieka nad dzieckiem", BigDecimal.valueOf(100), employer, null, null);
+        Employee foundEmployee = new Employee("Agata", "Smith", LocalDate.of(1999, 12, 01), "polish");
         Company company = new Company();
         //when
-        company.addEmployee(job);
+        Employee addedEmployee = company.addEmployee(job);
+        Employer foundEmployer = job.getEmployer();
 
         //then
+        Assertions.assertNull(addedEmployee, "job, employer or employee not found");
+        Assertions.assertNotNull(foundEmployer, "employeer not found");
+
 // TODO: 06.07.2023 napisz test do metody powyżej, poprawnie 
     }
 
     @Test
     void findEmployee() {
+        //given
+        BigDecimal employerPrice = new BigDecimal(120);
+        BigDecimal employeePrice = new BigDecimal(100);
+        //when
+        int comparedPrice = employerPrice.compareTo(employeePrice);
+        //then
+        Assertions.assertTrue(comparedPrice >= 0, "employee not found");
+
         // TODO: 06.07.2023 napisać test dla metody findEmployee() 
     }
-    
-    
+
+
 }
