@@ -30,6 +30,10 @@ public class Job {
         return price;
     }
 
+    public Employer getEmployer() {
+        return employer;
+    }
+
     public List<Employee> getEmployees() {
         return employees;
     }

@@ -42,11 +42,13 @@ class CompanyTest {
                 () -> Assertions.assertTrue(jobEmployeesSize > 0, "no employee")
         );
     }
+
     // TODO: 29.06.2023 napić test dla metody hire() oraz addEmployee()
 //    jeżeli metoda addEmployee() nie posiada implementacji, to ją dodać
     // test driven development (TDD)
     //dodać implementacje oraz testy dla metod z klasy Employer
 
+    @Test
     void hire() {
         //given
         Employee employee = new Employee("Ela", "Muller", LocalDate.of(1990, 04, 04), "polish");
@@ -61,14 +63,39 @@ class CompanyTest {
 
     }
 
+    @Test
     void addEmployee() {
-        //given
-        Job job = new Job("opieka nad dzieckiem", BigDecimal.valueOf(100), null, null, null);
+        //given - tworzymy obiekt klasy testowanej oraz parametry metody testowanej
+        Employer employer = new Employer();
+        employer.setPrice(BigDecimal.valueOf(100));
+
+        Employee employee = new Employee("Agata", "Smith", LocalDate.of(1999, 12, 01), "polish");
+        employee.setPrice(BigDecimal.valueOf(100));
+
+        Job job = new Job("opieka nad dzieckiem", BigDecimal.valueOf(100), employer, null, null);
+
         Company company = new Company();
-        //when
-        company.addEmployee(job);
+        company.hire(employee);
 
-        //then
+        //when - wywołanie metody testowanej dla klasy testowej
+        Employee addedEmployee = company.addEmployee(job);
 
+        //then - zapewniamy poprawność wartości zwracanej zgodnej ze wzorcem/z oczekiwaniem z metody testowej,
+        Assertions.assertNotNull(addedEmployee, "addedEmployee is null");
+    }
+
+    @Test
+    void findEmployee() {
+        //given - tworzymy obiekt klasy testowanej oraz parametry metody testowanej
+        Company company = new Company();
+        Employee employee = new Employee("Ola", "Kowalska", LocalDate.of(1999, 12, 10), "polish");
+        employee.setPrice(BigDecimal.valueOf(100));
+
+        //when - wywołanie metody testowanej dla klasy testowej
+        company.hire(employee);
+        Employee foundEmployee = company.findEmployee(BigDecimal.valueOf(100));
+
+        //then - zapewniamy poprawność wartości zwracanej zgodnej ze wzorcem/z oczekiwaniem z metody testowej,
+        Assertions.assertNotNull(foundEmployee, "foundEmployee is null");
     }
 }

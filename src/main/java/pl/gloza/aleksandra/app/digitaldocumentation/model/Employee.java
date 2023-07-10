@@ -1,5 +1,6 @@
 package pl.gloza.aleksandra.app.digitaldocumentation.model;
 
+import javax.naming.OperationNotSupportedException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -23,7 +24,7 @@ public class Employee {
     }
 
     public boolean acceptJob(Job job) {
-        return false;
+        throw new UnsupportedOperationException("we don't know yet");
     }
 
     public BigDecimal getPrice() {
