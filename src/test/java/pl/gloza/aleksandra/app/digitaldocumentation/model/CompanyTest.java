@@ -63,31 +63,44 @@ class CompanyTest {
 
     @Test
     void addEmployee() {
-        //given
+        //given - tworzymy obiekt klasy testowanej oraz parametry metody testowanej
         Employer employer = new Employer();
+        employer.setPrice(BigDecimal.valueOf(100));
+
+        Employee employee = new Employee("Agata", "Smith", LocalDate.of(1999, 12, 01), "polish");
+        employee.setPrice(BigDecimal.valueOf(100));
+
         Job job = new Job("opieka nad dzieckiem", BigDecimal.valueOf(100), employer, null, null);
-        Employee foundEmployee = new Employee("Agata", "Smith", LocalDate.of(1999, 12, 01), "polish");
+
         Company company = new Company();
-        //when
+        company.hire(employee);
+
+        //when - wywołanie metody testowanej dla klasy testowej
         Employee addedEmployee = company.addEmployee(job);
-        Employer foundEmployer = job.getEmployer();
+//        Employer foundEmployer = job.getEmployer();
 
-        //then
-        Assertions.assertNull(addedEmployee, "job, employer or employee not found");
-        Assertions.assertNotNull(foundEmployer, "employeer not found");
-
-// TODO: 06.07.2023 napisz test do metody powyżej, poprawnie 
+        //then - zapewniamy poprawność wartości zwracanej zgodnej ze wzorcem/z oczekiwaniem z metody testowej,
+        Assertions.assertNotNull(addedEmployee, "addedEmployee is null");
+//        Assertions.assertNotNull(foundEmployer, "employeer not found");
     }
 
     @Test
     void findEmployee() {
-        //given
-        BigDecimal employerPrice = new BigDecimal(120);
-        BigDecimal employeePrice = new BigDecimal(100);
-        //when
-        int comparedPrice = employerPrice.compareTo(employeePrice);
-        //then
-        Assertions.assertTrue(comparedPrice >= 0, "employee not found");
+        //given - tworzymy obiekt klasy testowanej oraz parametry metody testowanej
+        Company company = new Company();
+        Employee employee = new Employee("Ola", "Kowalska", LocalDate.of(1999, 12, 10), "polish");
+        employee.setPrice(BigDecimal.valueOf(100));
+//        BigDecimal employerPrice = new BigDecimal(120);
+//        BigDecimal employeePrice = new BigDecimal(100);
+
+        //when - wywołanie metody testowanej dla klasy testowej
+        company.hire(employee);
+        Employee foundEmployee = company.findEmployee(BigDecimal.valueOf(100));
+//        int comparedPrice = employerPrice.compareTo(employeePrice);
+
+        //then - zapewniamy poprawność wartości zwracanej zgodnej ze wzorcem/z oczekiwaniem z metody testowej,
+        Assertions.assertNotNull(foundEmployee, "foundEmployee is null");
+//        Assertions.assertTrue(comparedPrice >= 0, "employee not found");
 
         // TODO: 06.07.2023 napisać test dla metody findEmployee() 
     }
