@@ -61,3 +61,4 @@ public class Company {
         return employees;
     }
 }
+// TODO: 10.07.2023 https://docs.jboss.org/hibernate/orm/6.2/quickstart/html_single/ poczytaj, tj. zapoznaj z dokumentacją, czyli zrozum 
