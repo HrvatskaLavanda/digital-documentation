@@ -16,12 +16,14 @@ class EmployeeTest {
         Job job = new Job("opieka nad dzieckiem", BigDecimal.TEN, employer, null, null);
 
         //when - wywołanie metody testowanej dla klasy testowej
-        boolean isAccepted = employee.acceptJob(job);
+//        boolean isAccepted = ;
 
         //then - zapewniamy poprawność wartości zwracanej zgodnej ze wzorcem/z oczekiwaniem z metody testowej,
 //        Assertions.assertEquals();
 //        Assertions.assertEquals(true, isAccepted, "is not accepted");
-        Assertions.assertTrue(isAccepted, "is not accepted");
+//        Assertions.assertTrue(isAccepted, "is not accepted");
+        Assertions.assertThrows(UnsupportedOperationException.class,
+                ()->employee.acceptJob(job) );
     }
 }
 // TODO: 22.06.2023 napisać testy jednostkowe dla pozostałych modeli 

@@ -42,11 +42,13 @@ class CompanyTest {
                 () -> Assertions.assertTrue(jobEmployeesSize > 0, "no employee")
         );
     }
+
     // TODO: 29.06.2023 napić test dla metody hire() oraz addEmployee()
 //    jeżeli metoda addEmployee() nie posiada implementacji, to ją dodać
     // test driven development (TDD)
     //dodać implementacje oraz testy dla metod z klasy Employer
 
+    @Test
     void hire() {
         //given
         Employee employee = new Employee("Ela", "Muller", LocalDate.of(1990, 04, 04), "polish");

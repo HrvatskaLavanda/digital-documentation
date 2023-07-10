@@ -13,8 +13,10 @@ class EmployerTest {
         Employer employer = new Employer();
         Job job = new Job("opieka nad dzieckiem", BigDecimal.TEN, employer, null, null);
         //when
-        boolean isAccepted = employer.acceptPrice(job);
+//        boolean isAccepted = ;
         //then
-        Assertions.assertTrue(isAccepted, "is not accepted");
+//        Assertions.assertTrue(isAccepted, "is not accepted");
+        Assertions.assertThrows(UnsupportedOperationException.class,
+                ()->employer.acceptPrice(job));
     }
 }
