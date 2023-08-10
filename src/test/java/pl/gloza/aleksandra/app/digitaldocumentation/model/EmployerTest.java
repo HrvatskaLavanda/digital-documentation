@@ -21,6 +21,15 @@ class EmployerTest {
 
     @Test
     void orderJob() {
+        //given - tworzymy obiekt klasy testowanej oraz parametry metody testowanej
+        Employer employer = new Employer();
+        Company company = new Company();
+        Address jobAddress = new Address("Marszalkowska", "100", "Poland");
+        //when - wywołanie metody testowanej dla klasy testowej
+
+        //then - zapewniamy poprawność wartości zwracanej zgodnej ze wzorcem/z oczekiwaniem z metody testowej
+        Assertions.assertThrows(UnsupportedOperationException.class,
+                () -> employer.orderJob(company, jobAddress));
     }
     // TODO: 10.07.2023 napisać test jednostkowy
 }
